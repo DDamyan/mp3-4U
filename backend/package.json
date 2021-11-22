@@ -1,0 +1,14 @@
+{
+  "name": "mp3-4u_backend",
+  "version": "1.0.0",
+  "description": "backend for mp3-4U",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DDA",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  }
+}

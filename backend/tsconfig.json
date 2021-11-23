@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES2021",
     "watch": true,
+    "moduleResolution": "Node",
     //"types": ["node", "express"]
     "allowSyntheticDefaultImports": true
   },
   "typeAcquisition": {
-    "enable": true
-  },
-  "exclude": ["node_modules"]
+    "enable": true,
+    "exclude": ["defer-to-connect"]
+  }
+  // "exclude": ["node_modules"]
   //"files": ["index.ts"]
 }

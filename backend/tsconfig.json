@@ -1,7 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "watch": true
+    "target": "ES6",
+    "watch": true,
+    //"types": ["node", "express"]
+    "allowSyntheticDefaultImports": true
   },
-  "files": ["index.ts"]
+  "typeAcquisition": {
+    "enable": true
+  },
+  "exclude": ["node_modules"]
+  //"files": ["index.ts"]
 }

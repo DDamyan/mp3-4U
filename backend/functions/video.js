@@ -1,8 +1,4 @@
 import ytdl from 'ytdl-core';
-import { StreamInput } from 'fluent-ffmpeg-multistream';
-import ffmpegUtils from '@ffmpeg-installer/ffmpeg';
-import Ffmpeg from 'fluent-ffmpeg';
-Ffmpeg.setFfmpegPath(ffmpegUtils.path);
 export default async function video(req, res) {
     console.log(' GET: /video');
     let url = req.header('url');
@@ -12,18 +8,17 @@ export default async function video(req, res) {
     //   console.dir(codecs);
     // });
     var info = await ytdl.getInfo(url);
-    Ffmpeg()
-        .input(StreamInput(ytdl.downloadFromInfo(info, { quality: tag })).url)
-        .input(StreamInput(ytdl.downloadFromInfo(info, { quality: 'highestaudio' })).url)
-        .on('start', cmd => console.log('  ' + cmd))
-        .on('end', () => console.log('  processing  finished!'))
-        .on('error', err => console.log('  error:: ' + err))
-        .withVideoCodec('copy')
-        // .map('0:v')
-        // .map('1:a')
-        //.outputOptions('-pix_fmt yuv420p')
-        .format('mp4') //.toFormat('mp4')
-        .saveToFile('ffmpeg-test.mp4');
-    //.writeToStream(fs.createWriteStream('video.mp4'), {end: true});
+    // Ffmpeg(ytdl.downloadFromInfo(info, {quality: tag}))
+    //   .input(ytdl.downloadFromInfo(info, {quality: 'highestaudio'}))
+    //   .on('start', cmd => console.log('  ' + cmd))
+    //   .on('end', () => console.log('  processing  finished!'))
+    //   .on('error', err => console.log('  error:: ' + err))
+    //   .withVideoCodec('copy')
+    //   // .map('0:v')
+    //   // .map('1:a')
+    //   //.outputOptions('-pix_fmt yuv420p')
+    //   .format('mp4') //.toFormat('mp4')
+    //   .saveToFile('ffmpeg-test.mp4');
+    // //.writeToStream(fs.createWriteStream('video.mp4'), {end: true});
     res.sendStatus(200);
 }

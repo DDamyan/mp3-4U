@@ -8,7 +8,7 @@
   },
   "typeAcquisition": {
     "enable": true,
-    "exclude": ["defer-to-connect"]
+    "exclude": ["defer-to-connect", "agent-base"]
   }
   // "exclude": ["node_modules"]
   //"files": ["index.ts"]
